@@ -1,0 +1,9 @@
+GameCreate3D.sln
+.vsconfig
+Library/
+Logs/
+Packages/
+ProjectSettings/
+Temp/
+UserSettings/
+Assets/Material/
