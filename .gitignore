@@ -7,3 +7,5 @@ ProjectSettings/
 Temp/
 UserSettings/
 Assets/Material/
+.vs/
+obj/
