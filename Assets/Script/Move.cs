@@ -23,7 +23,8 @@ public class Move : MonoBehaviour
         }
         if (isStop) 
         {
-            
+            _rigidBody.AddForce(Vector3.right * 0, ForceMode.Force);
+            Time.timeScale = 0.0f;
         }
     }
 
