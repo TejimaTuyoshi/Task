@@ -6,8 +6,6 @@ TagManager:
   tags:
   - stop
   - item
-  - item2
-  - item3
   layers:
   - Default
   - TransparentFX

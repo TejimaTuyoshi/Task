@@ -2,40 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
     [SerializeField] Rigidbody _rigidBody;
-    [SerializeField] GameObject _item1;
-    [SerializeField] GameObject _item2;
-    [SerializeField] GameObject _item3;
-    [SerializeField] GameObject _text;
-    int number0;
+    [SerializeField] Text text;
     bool isStop = false;
+    int _score = 0;
     void Awake()
     {
-        var random = new System.Random();
-        number0 = random.Next(01, 04);
         _rigidBody = GetComponent<Rigidbody>();
-        switch (number0)
-        {
-            case 1:
-                _item1.SetActive(true);
-                break;
-            case 2:
-                _item2.SetActive(true);
-                break;
-            case 3:
-                _item3.SetActive(true);
-                break;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //TODO
-        //ˆÚ“®‚¹‚æ
+        ScoreText();
         if (!isStop)
         {
             _rigidBody.AddForce(Vector3.right * 1, ForceMode.Force);
@@ -63,18 +46,13 @@ public class Move : MonoBehaviour
         }
         if (other.gameObject.CompareTag("item"))
         {
-            _item1.SetActive(false);
-            _text.SetActive(true);
+            other.gameObject.SetActive(false);
+            _score++;
         }
-        if (other.gameObject.CompareTag("item2"))
-        {
-            _item2.SetActive(false);
-            _text.SetActive(true);
-        }
-        if (other.gameObject.CompareTag("item3"))
-        {
-            _item3.SetActive(false);
-            _text.SetActive(true);
-        }
+    }
+
+    public void ScoreText()
+    {
+        text.text = ("Score: " + _score);
     }
 }
